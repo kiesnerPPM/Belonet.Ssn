@@ -17,6 +17,7 @@ class WorkerController extends \TYPO3\Flow\Mvc\Controller\ActionController {
   protected $persistenceManager;
 
   /**
+   *
    * @Flow\Inject
    * @var \Belonet\Ssn\Domain\Repository\WorkerRepository
    */
