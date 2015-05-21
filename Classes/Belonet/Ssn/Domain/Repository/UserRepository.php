@@ -11,9 +11,9 @@ namespace Belonet\Ssn\Domain\Repository;
 use TYPO3\Flow\Annotations as Flow;
 
 /**
- * Person Repo
+ * User Repo
  * @Flow\Scope("singleton")
  */
-class PersonRepository extends \TYPO3\Flow\Persistence\Repository {
+class UserRepository extends \TYPO3\Flow\Persistence\Repository {
 
 }

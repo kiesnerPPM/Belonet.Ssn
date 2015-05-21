@@ -8,7 +8,7 @@ namespace Belonet\Ssn\Controller;
 
 use TYPO3\Flow\Annotations as Flow;
 
-class PersonController extends \TYPO3\Flow\Mvc\Controller\ActionController {
+class UserController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 
     /**
      * Action to show all saved datas about person
