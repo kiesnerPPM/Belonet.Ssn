@@ -17,13 +17,13 @@ class Mail{
 
 
     /**
-     * @var \Belonet\Ssn\Domain\Model\Person
+     * @var \Belonet\Ssn\Domain\Model\User
      * @ORM\ManyToOne(inversedBy="mail")
      */
     protected $sender;
 
     /**
-     * @var \Belonet\Ssn\Domain\Model\Person
+     * @var \Belonet\Ssn\Domain\Model\User
      * @ORM\ManyToOne(inversedBy="mail")
      */
     protected $receiver;
@@ -66,7 +66,7 @@ class Mail{
 
 
     /**
-     * @return Person
+     * @return User
      */
     public function getSender()
     {
@@ -74,7 +74,7 @@ class Mail{
     }
 
     /**
-     * @param Person $sender
+     * @param User $sender
      */
     public function setSender($sender)
     {
@@ -82,7 +82,7 @@ class Mail{
     }
 
     /**
-     * @return Person
+     * @return User
      */
     public function getReceiver()
     {
@@ -90,7 +90,7 @@ class Mail{
     }
 
     /**
-     * @param Person $receiver
+     * @param User $receiver
      */
     public function setReceiver($receiver)
     {
