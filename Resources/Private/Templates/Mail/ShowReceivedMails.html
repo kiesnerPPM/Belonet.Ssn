@@ -1,7 +1,54 @@
-<f:layout name="Default" />
+<f:layout name="Portal"/>
 
-<f:section name="Title">View for showReceivedMailsAction of MailControlle</f:section>
+<f:section name="Title">Received Mails</f:section>
+
+<f:section name="TopMenu">
+    <f:render partial="TopMenu"/>
+</f:section>
+
+<f:section name="Navigation">
+    <f:render partial="Navigation" arguments="{active: 'mail'}"/>
+</f:section>
+
+<f:section name="ModuleMenu">
+    <f:render partial="MenuMail" arguments="{active: 'inbox'}"/>
+</f:section>
 
 <f:section name="Content">
-	<h1>Here comes the content for received mails</h1>
+    <h1>Überschrift 1</h1>
+
+    <h2>Überschrift 1.1</h2>
+
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+        diam nonumy eirmod tempor invidunt ut labore et dolore magna
+        aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
+        duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+        sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+        consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+        ut labore et dolore magna aliquyam</p>
+
+    <h2>Überschrift 1.2</h2>
+
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+        diam nonumy eirmod tempor invidunt ut labore et dolore magna
+        aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
+        duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+        sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+        consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+        ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero
+        eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+        gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+        nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+        erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+        et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
+        Lorem ipsum dolor sit amet.</p>
+
+    <p>Duis autem vel eum iriure dolor in hendrerit in vulputate
+        velit esse molestie consequat, vel illum dolore eu feugiat nulla
+        facilisis at vero eros et accumsan et iusto odio dignissim qui
+        blandit praesent luptatum zzril delenit augue duis dolore te feugait
+        nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing
+        elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore
+        magna aliquam erat volutpat.</p>
 </f:section>

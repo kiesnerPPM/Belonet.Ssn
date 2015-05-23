@@ -10,16 +10,16 @@ use TYPO3\Flow\Annotations as Flow;
 
 class MailController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 
-    /**
-     * Action which shows all received mails
-     *
-     */
+	/**
+	 * Action which shows all received mails
+	 *
+	 */
 	public function showReceivedMailsAction(){
 
-    }
+	}
 
 
-    /**
+	/**
      * Action which shows all sent mails
      *
      */

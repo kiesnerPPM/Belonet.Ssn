@@ -1,7 +1,18 @@
-<f:layout name="Default" />
+<f:layout name="Portal"/>
 
-<f:section name="Title">show neighbourly view of neighbourly controller</f:section>
+<f:section name="Title">Nachbarschaftshilfe</f:section>
+
+<f:section name="TopMenu">
+    <f:render partial="TopMenu"/>
+</f:section>
+
+<f:section name="Navigation">
+    <f:render partial="Navigation" arguments="{active: 'assistance'}"/>
+</f:section>
+
+<f:section name="ModuleMenu">
+</f:section>
 
 <f:section name="Content">
-	<h1>Here comes the content for the Neighbourly</h1>
+    <h1>Lieber Nachbar hilf mir!</h1>
 </f:section>

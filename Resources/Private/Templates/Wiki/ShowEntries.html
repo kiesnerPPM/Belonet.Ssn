@@ -1,7 +1,18 @@
-<f:layout name="Default" />
+<f:layout name="Portal"/>
 
-<f:section name="Title">ShowEntries view of Wikicontroller</f:section>
+<f:section name="Title">Wiki</f:section>
+
+<f:section name="TopMenu">
+    <f:render partial="TopMenu"/>
+</f:section>
+
+<f:section name="Navigation">
+    <f:render partial="Navigation" arguments="{active: 'wiki'}"/>
+</f:section>
+
+<f:section name="ModuleMenu">
+</f:section>
 
 <f:section name="Content">
-	<h1>Here comes the content of the wiki</h1>
+    <h1>Wiki Entries</h1>
 </f:section>

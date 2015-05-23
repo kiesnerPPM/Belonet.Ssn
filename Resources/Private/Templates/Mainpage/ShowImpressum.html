@@ -1,7 +1,21 @@
-<f:layout name="Default" />
+<f:layout name="Portal"/>
 
-<f:section name="Title">Impressumg view of Mainpage controller</f:section>
+<f:section name="Title">Impressum</f:section>
+
+<f:section name="TopMenu">
+    <f:render partial="TopMenu" arguments="{active: 'about'}"/>
+</f:section>
+
+<f:section name="Navigation">
+    <f:render partial="Navigation"/>
+</f:section>
+
+<f:section name="ModuleMenu">
+</f:section>
 
 <f:section name="Content">
-	<h1>Here comes the content for the Impressum</h1>
+    <h1>Impressum</h1>
+    <p>Bla Bla Bla</p>
+    <h1>Datenschutz</h1>
+    <p>123</p>
 </f:section>

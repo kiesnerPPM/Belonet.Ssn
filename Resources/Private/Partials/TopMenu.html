@@ -1,0 +1,11 @@
+<ul class="topmenu">
+    <li class="{f:if(condition: '{active} == \'home\'', then: 'active')}">
+        <f:link.action controller="Mainpage" action="Index">Start</f:link.action>
+    </li>
+    <li class="{f:if(condition: '{active} == \'help\'', then: 'active')}">
+        <f:link.action controller="Mainpage" action="ShowImpressum">Hilfe</f:link.action>
+    </li>
+    <li class="{f:if(condition: '{active} == \'about\'', then: 'active')}">
+        <f:link.action controller="Mainpage" action="ShowImpressum">Impressum</f:link.action>
+    </li>
+</ul>

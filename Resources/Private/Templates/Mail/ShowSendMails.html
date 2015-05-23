@@ -1,7 +1,19 @@
-<f:layout name="Default" />
+<f:layout name="Portal"/>
 
-<f:section name="Title">View for showSendMailsAction of MailController</f:section>
+<f:section name="Title">Sent Mails</f:section>
+
+<f:section name="TopMenu">
+    <f:render partial="TopMenu"/>
+</f:section>
+
+<f:section name="Navigation">
+    <f:render partial="Navigation" arguments="{active: 'mail'}"/>
+</f:section>
+
+<f:section name="ModuleMenu">
+    <f:render partial="MenuMail" arguments="{active: 'sent'}"/>
+</f:section>
 
 <f:section name="Content">
-	<h1>Here comes the content for sent mails</h1>
+    <h1>Sent Mails</h1>
 </f:section>

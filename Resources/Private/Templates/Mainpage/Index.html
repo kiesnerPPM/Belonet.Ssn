@@ -1,7 +1,19 @@
-<f:layout name="Default" />
+<f:layout name="Portal"/>
 
-<f:section name="Title">Index view of Mainpage controller</f:section>
+<f:section name="Title">Belonet - Bedenkenlos im Netz</f:section>
+
+<f:section name="TopMenu">
+    <f:render partial="TopMenu" arguments="{active: 'home'}"/>
+</f:section>
+
+<f:section name="Navigation">
+    <f:render partial="Navigation"/>
+</f:section>
+
+<f:section name="ModuleMenu">
+</f:section>
 
 <f:section name="Content">
-	<h1>Here comes the content for the mainpage</h1>
+    <h1>Willkommen auf Belonet</h1>
+    <p>Entweder wir lassen das so, oder wir erstellen an dieser Stelle eine Seite, auf der die obigen Buttons nochmal größer dargestellt sind.</p>
 </f:section>

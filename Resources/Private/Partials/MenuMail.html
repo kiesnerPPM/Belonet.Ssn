@@ -1,0 +1,11 @@
+<ul>
+    <li class="{f:if(condition: '{active} == \'new\'', then: 'active')}">
+        <f:link.action action="NewMail">Neue Nachricht</f:link.action>
+    </li>
+    <li class="{f:if(condition: '{active} == \'inbox\'', then: 'active')}">
+        <f:link.action action="ShowReceivedMails">Posteingang</f:link.action>
+    </li>
+    <li class="{f:if(condition: '{active} == \'sent\'', then: 'active')}">
+        <f:link.action action="ShowSendMails">Gesendet</f:link.action>
+    </li>
+</ul>

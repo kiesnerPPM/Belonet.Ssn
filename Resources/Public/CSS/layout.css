@@ -1,0 +1,40 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: Arial;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #402582;
+}
+
+h1 {
+	color: #402582;
+	font-family: Georgia;
+	font-style: italic;
+	font-weight: bold;
+	margin: 15px 0 10px 0;
+	font-size: 32px;
+}
+
+h2 {
+	color: #826DE3;
+	font-family: Georgia;
+	font-style: italic;
+	font-weight: normal;
+	margin: 15px 0 10px 0;
+	font-size: 26px;
+}
+
+p {
+	font-size: 15px;
+	margin: 10px 0;
+}

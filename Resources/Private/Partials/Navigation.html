@@ -1,0 +1,22 @@
+<ul>
+    <li class="{f:if(condition: '{active} == \'mail\'', then: 'active')}">
+        <f:link.action controller="Mail" action="ShowReceivedMails"><img src="{f:uri.resource(path:'IMG/mod-mail.png')}"
+                                                                         alt=""><br>Post
+        </f:link.action>
+    </li>
+    <li class="{f:if(condition: '{active} == \'search\'', then: 'active')}">
+        <f:link.action controller="Search" action="ShowSearchPage"><img
+                src="{f:uri.resource(path:'IMG/mod-search.png')}" alt=""><br>Suche
+        </f:link.action>
+    </li>
+    <li class="{f:if(condition: '{active} == \'wiki\'', then: 'active')}">
+        <f:link.action controller="Wiki" action="ShowEntries"><img src="{f:uri.resource(path:'IMG/mod-wiki.png')}"
+                                                                   alt=""><br>Informationen
+        </f:link.action>
+    </li>
+    <li class="{f:if(condition: '{active} == \'assistance\'', then: 'active')}">
+        <f:link.action controller="Neighbourly" action="ShowNeighbourly"><img
+                src="{f:uri.resource(path:'IMG/mod-assistance.png')}" alt=""><br>Nachbarschaftshilfe
+        </f:link.action>
+    </li>
+</ul>
