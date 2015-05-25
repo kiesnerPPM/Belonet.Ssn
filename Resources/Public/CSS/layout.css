@@ -13,11 +13,11 @@ a {
 
 a:hover {
 	text-decoration: underline;
-	color: #402582;
+	color: #007;
 }
 
 h1 {
-	color: #402582;
+	color: #007;
 	font-family: Georgia;
 	font-style: italic;
 	font-weight: bold;
@@ -26,7 +26,7 @@ h1 {
 }
 
 h2 {
-	color: #826DE3;
+	color: #3333BB;
 	font-family: Georgia;
 	font-style: italic;
 	font-weight: normal;

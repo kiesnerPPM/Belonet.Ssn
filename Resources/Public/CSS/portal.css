@@ -61,11 +61,11 @@ img.page-globe {
 }
 
 div.nav-wrapper {
-	background: rgba(146, 128, 251, 0.4);
+	background: rgba(121, 121, 255, 0.6);
 }
 
 div.nav {
-	background: linear-gradient(120deg, #503592, #402582);
+	background: linear-gradient(120deg, #008, #007);
 	text-align: center;
 	padding: 0 0;
 	color: #FFF;
@@ -92,7 +92,7 @@ div.nav ul li a {
 }
 
 div.nav ul li.active a {
-	background: rgba(146, 128, 251, 0.8);
+	background: #3333BB;
 }
 
 div.nav ul li a img {
@@ -111,12 +111,11 @@ div.nav ul li a:hover,div.nav ul li.active a {
 }
 
 div.menu {
-	background: #402582;
+	background: #3333BB;
 	box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
 }
 
 div.menu ul {
-	background: rgba(146, 128, 251, 0.8);
 	list-style-type: none;
 	padding: 5px 20px 0 20px;
 }
@@ -131,11 +130,12 @@ div.menu ul li a {
 	color: #FFF;
 	padding: 3px 10px;
 	display: block;
+    border-radius: 5px 5px 0 0;
 }
 
 div.menu ul li a:hover {
 	text-decoration: none;
-	background: rgba(255, 255, 255, 0.3);
+	background: rgba(113, 155, 255, 0.9);
 }
 
 div.menu ul li.active a {
