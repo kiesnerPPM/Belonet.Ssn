@@ -17,4 +17,8 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 		$this->redirect('index','Mainpage');
 	}
 
+	public function showLoginBoxAction() {
+
+	}
+
 }
