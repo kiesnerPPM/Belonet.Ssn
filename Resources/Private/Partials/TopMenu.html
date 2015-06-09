@@ -2,10 +2,13 @@
     <li class="{f:if(condition: '{active} == \'home\'', then: 'active')}">
         <f:link.action controller="Mainpage" action="Index">Start</f:link.action>
     </li>
-    <li class="{f:if(condition: '{active} == \'help\'', then: 'active')}">
-        <f:link.action controller="Mainpage" action="ShowImpressum">Hilfe</f:link.action>
+    <li class="{f:if(condition: '{active} == \'contact\'', then: 'active')}">
+        <f:link.action controller="Mainpage" action="ShowContact">Kontakt und Hilfe</f:link.action>
     </li>
     <li class="{f:if(condition: '{active} == \'about\'', then: 'active')}">
         <f:link.action controller="Mainpage" action="ShowImpressum">Impressum</f:link.action>
+    </li>
+    <li class="{f:if(condition: '{active} == \'logout\'', then: 'active')}">
+        <f:link.action controller="Login" action="AdminLogin">Abmelden</f:link.action>
     </li>
 </ul>

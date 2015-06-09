@@ -20,9 +20,13 @@ class MainpageController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 
 	}
 
-	public function showImpressumAction() {
+  public function showImpressumAction() {
 
-	}
+  }
+
+  public function showContactAction() {
+
+  }
 
 
 }
