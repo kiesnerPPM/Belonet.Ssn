@@ -17,37 +17,50 @@
 <f:section name="Content">
 
     <h1>Gesendete Nachrichten</h1>
-    <table class="table table-hover mailbox">
-        <thead>
-        <tr>
-            <th>Datum</th>
-            <th>Empfänger</th>
-            <th>Betreff</th>
-        </tr>
-        </thead>
-        <tbody>
-        <f:for each="{allMails}" as="mail">
-            <tr>
-                <td>
-                    <f:link.action action="showSendMailItem" arguments="{mail: mail}">
-                        <f:format.date format="d.m.Y H:i:s">{mail.date}</f:format.date>
-                        Uhr
-                    </f:link.action>
-                </td>
-                <td>
-                    <f:link.action action="showSendMailItem" arguments="{mail: mail}">
-                        {mail.recipient.name}
-                    </f:link.action>
-                </td>
-                <td>
-                    <f:link.action action="showSendMailItem" arguments="{mail: mail}">
-                        {mail.subject}
-                    </f:link.action>
-                </td>
-            </tr>
-        </f:for>
-        </tbody>
-        <tfoot></tfoot>
-    </table>
+
+    <f:if condition="{allMails -> f:count()}>0">
+        <f:then>
+
+            <table class="table table-hover mailbox">
+                <thead>
+                <tr>
+                    <th>Datum</th>
+                    <th>Empfänger</th>
+                    <th>Betreff</th>
+                </tr>
+                </thead>
+                <tbody>
+                <f:for each="{allMails}" as="mail">
+                    <tr>
+                        <td>
+                            <f:link.action action="showSendMailItem" arguments="{mail: mail}">
+                                <f:format.date format="d.m.Y H:i:s">{mail.date}</f:format.date>
+                                Uhr
+                            </f:link.action>
+                        </td>
+                        <td>
+                            <f:link.action action="showSendMailItem" arguments="{mail: mail}">
+                                {mail.recipient.name}
+                            </f:link.action>
+                        </td>
+                        <td>
+                            <f:link.action action="showSendMailItem" arguments="{mail: mail}">
+                                {mail.subject}
+                            </f:link.action>
+                        </td>
+                    </tr>
+                </f:for>
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+
+        </f:then>
+        <f:else>
+
+            <div class="alert alert-info" role="alert">Sie haben keine gesendeten Nachrichten.</div>
+
+        </f:else>
+    </f:if>
+
 
 </f:section>
