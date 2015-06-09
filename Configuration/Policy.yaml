@@ -1,0 +1,26 @@
+roles:
+  BelonetUser: []
+
+resources:
+  methods:
+    #userMethods: 'method(Belonet\Ssn\Controller\MainpageController->indexAction() )'
+   # userMethods: 'method(Belonet\Ssn\Controller\MailController->.*Action() | Belonet\Ssn\Controller\MainpageController->.*Action() | Belonet\Ssn\Controller\NeighbourlyController->.*Action() | Belonet\Ssn\Controller\SearchController->.*Action() | Belonet\Ssn\Controller\StandardController->.*Action() | Belonet\Ssn\Controller\WikiController->.*Action() )'
+    mailMethods: 'method(Belonet\Ssn\Controller\MailController->.*Action())'
+    mainpageMethods: 'method(Belonet\Ssn\Controller\MainpageController->.*Action())'
+    neighbourlyMethods: 'method(Belonet\Ssn\Controller\NeighbourlyController->.*Action())'
+    searchMethods: 'method(Belonet\Ssn\Controller\SearchController->.*Action())'
+    standardMethods: 'method(Belonet\Ssn\Controller\StandardController->.*Action())'
+    userMethods: 'method(Belonet\Ssn\Controller\UserController->.*Action())'
+    wikiMethods: 'method(Belonet\Ssn\Controller\WikiController->.*Action())'
+
+
+acls:
+  BelonetUser:
+     methods:
+        mailMethods: GRANT
+        mainpageMethods: GRANT
+        neighbourlyMethods: GRANT
+        searchMethods: GRANT
+        standardMethods: GRANT
+        userMethods: GRANT
+        wikiMethods: GRANT
