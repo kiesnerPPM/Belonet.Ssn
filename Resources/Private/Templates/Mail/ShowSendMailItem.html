@@ -1,0 +1,44 @@
+<f:layout name="Portal"/>
+
+<f:section name="Title">{mail.subject}</f:section>
+
+<f:section name="TopMenu">
+    <f:render partial="TopMenu"/>
+</f:section>
+
+<f:section name="Navigation">
+    <f:render partial="Navigation" arguments="{active: 'mail'}"/>
+</f:section>
+
+<f:section name="ModuleMenu">
+    <f:render partial="MenuMail" arguments="{active: 'sent'}"/>
+</f:section>
+
+<f:section name="Content">
+    <f:link.action controller="Mail" action="showReceivedMails" additionalAttributes="{role : 'button', class: 'btn btn-default'}">zurück</f:link.action>
+    <f:link.action controller="Mail" action="newMail" additionalAttributes="{role : 'button', class: 'btn btn-default'}">löschen</f:link.action>
+
+    <form class="form-horizontal mail">
+        <div class="form-group">
+            <label for="mailDate">Datum/Uhrzeit</label>
+            <input type="text" class="form-control" id="mailDate" value="{mail.date -> f:format.date(format: 'd.m.Y H:i:s')} Uhr" readonly>
+        </div>
+        <div class="form-group">
+            <label for="mailSender">Absender</label>
+            <input type="text" class="form-control" id="mailSender" value="{mail.sender.name}" readonly>
+        </div>
+        <div class="form-group">
+            <label for="mailRecipient">Empfänger</label>
+            <input type="text" class="form-control" id="mailRecipient" value="{mail.receiver.name}" readonly>
+        </div>
+        <div class="form-group">
+            <label for="mailSubject">Betreff</label>
+            <input type="text" class="form-control" id="mailSubject" value="{mail.subject}" readonly>
+        </div>
+        <div class="form-group">
+            <label for="mailContent">Nachricht</label>
+            <textarea class="form-control" id="mailContent" rows="10" readonly>{mail.content}</textarea>
+        </div>
+    </form>
+
+</f:section>
