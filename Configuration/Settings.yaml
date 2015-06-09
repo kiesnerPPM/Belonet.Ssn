@@ -10,17 +10,17 @@
 
 TYPO3:
   Flow:
-    persistence:
-
-      # It is good practice to not specify user name and password of the database
-      # connection in this global Settings.yaml file. Rather specify them in the
-      # settings of the respective context (Production / Development ...).
-      backendOptions:
-        driver: 'pdo_mysql'
-        dbname: 'belonet'
-        user: 'belonetUser'
-        password: 'pw4BelonetDB'       
-        host: '127.0.0.1'    # adjust to your database host
+     security:
+        authentication:
+           providers:
+              DefaultProvider:
+                 provider: PersistedUsernamePasswordProvider
+                 entryPoint: 'WebRedirect'
+                 entryPointOptions:
+                    routeValues:
+                       '@package': 'Belonet.Ssn'
+                       '@controller': 'Login'
+                       '@action': 'adminLogin'
 
   # You might need to uncomment the following lines and specify
   # the location of the PHP binary manually.
