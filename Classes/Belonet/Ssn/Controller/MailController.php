@@ -10,62 +10,110 @@ use TYPO3\Flow\Annotations as Flow;
 
 class MailController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 
-	/**
-	 * @Flow\Inject
-	 * @var \TYPO3\Flow\Persistence\PersistenceManagerInterface
-	 */
-	protected $persistenceManager;
+  /**
+   * @Flow\Inject
+   * @var \TYPO3\Flow\Persistence\PersistenceManagerInterface
+   */
+  protected $persistenceManager;
 
-	/**
-	 * @Flow\Inject
-	 * @var \Belonet\Ssn\Domain\Repository\MailRepository
-	 */
-	protected $mailRepository;
+  /**
+   * @Flow\Inject
+   * @var \Belonet\Ssn\Domain\Repository\MailRepository
+   */
+  protected $mailRepository;
 
-	/**
-	 * Action which shows all received mails
-	 *
-	 */
-	public function showReceivedMailsAction() {
-		// TODO: Fix this to get only the mails for the current user
-		$allMails = $this->mailRepository->findAll()->toArray();
-		$this->view->assign("allMails", $allMails);
-	}
+  /**
+   * the user repo
+   * @Flow\Inject
+   * @var \Belonet\Ssn\Domain\Repository\UserAccountRepository
+   */
+  protected $userAccountRepository;
 
-	/**
-	 * @param \Belonet\Ssn\Domain\Model\Mail $mail
-	 * @return void
-	 */
-	public function showReceivedMailItemAction(\Belonet\Ssn\Domain\Model\Mail $mail) {
-		$this->view->assign("mail", $mail);
-	}
+  /**
+   * @var \TYPO3\Flow\Security\Context
+   * @Flow\Inject
+   */
+  protected $securityContext;
 
+  /**
+   * Action which shows all received mails
+   *
+   */
+  public function showReceivedMailsAction() {
+    $recipient = $this->securityContext->getAccount()->getParty();
+    $recipientId = $this->persistenceManager->getIdentifierByObject($recipient);
+    $allMails = $this->mailRepository->getReceivedMails($recipientId);
+//    $allMails = usort($allMails, "compareMailByDate");
+    $this->view->assign("allMails", $allMails);
+  }
 
-	/**
-	 * Action which shows all sent mails
-	 *
-	 */
-	public function showSendMailsAction() {
-		// TODO: Fix this to get only the mails for the current user
-		$allMails = $this->mailRepository->findAll()->toArray();
-		$this->view->assign("allMails", $allMails);
-	}
-
-	/**
-	 * @param \Belonet\Ssn\Domain\Model\Mail $mail
-	 * @return void
-	 */
-	public function showSendMailItemAction(\Belonet\Ssn\Domain\Model\Mail $mail) {
-		$this->view->assign("mail", $mail);
-	}
-
+  /**
+   * @param \Belonet\Ssn\Domain\Model\Mail $mail
+   * @return void
+   */
+  public function showReceivedMailItemAction(\Belonet\Ssn\Domain\Model\Mail $mail) {
+    $mail->setOpened(1);
+    $this->mailRepository->update($mail);
+    $this->persistenceManager->persistAll();
+    $this->view->assign("mail", $mail);
+  }
 
 
-	/**
-	 * Action which creates a new Mail
-	 */
-	public function newMailAction() {
+  /**
+   * Action which shows all sent mails
+   *
+   */
+  public function showSendMailsAction() {
+    $recipient = $this->securityContext->getAccount()->getParty();
+    $recipientId = $this->persistenceManager->getIdentifierByObject($recipient);
+    $allMails = $this->mailRepository->getSentMails($recipientId);
+  //  $allMails = usort($allMails, "compareMailByDate");
+    $this->view->assign("allMails", $allMails);
+  }
 
-	}
+  /**
+   * @param \Belonet\Ssn\Domain\Model\Mail $mail
+   * @return void
+   */
+  public function showSendMailItemAction(\Belonet\Ssn\Domain\Model\Mail $mail) {
+    $this->view->assign("mail", $mail);
+  }
+
+
+  /**
+   * Action which creates a new Mail
+   */
+  public function newMailAction() {
+
+  }
+
+  /**
+   * @param string $recipient
+   * @param string $subject
+   * @param string $content
+   */
+  public function sendMailAction($recipient, $subject, $content) {
+
+    $recipientList = $this->userAccountRepository->findByEmailAddress($recipient);
+    if (count($recipientList) === 1) {
+      $sender = $this->securityContext->getAccount()->getParty();
+      $date = new \DateTime();
+      // create mail for sender and recipient
+      $mail1 = new \Belonet\Ssn\Domain\Model\Mail($sender, $recipientList[0], $date, 1, $subject, $content, 1);
+      $mail2 = new \Belonet\Ssn\Domain\Model\Mail($sender, $recipientList[0], $date, 0, $subject, $content, 0);
+      // write to database
+      $this->mailRepository->add($mail1);
+      $this->mailRepository->add($mail2);
+      $this->persistenceManager->persistAll();
+    }
+
+  }
+
+  /*
+  private function compareMailByDate($a, $b) {
+    $t1 = strtotime($a->getDate());
+    $t2 = strtotime($b->getDate());
+    return ($t2 - $t1);
+  } */
 
 }

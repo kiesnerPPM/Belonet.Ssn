@@ -28,18 +28,18 @@
         <tbody>
         <f:for each="{allMails}" as="mail">
             <tr>
-                <td>
+                <td style="{f:if(condition: '{mail.opened} == 0', then: 'font-weight: bold;')}">
                     <f:link.action action="showReceivedMailItem" arguments="{mail: mail}">
                         <f:format.date format="d.m.Y H:i:s">{mail.date}</f:format.date>
                         Uhr
                     </f:link.action>
                 </td>
-                <td>
+                <td style="{f:if(condition: '{mail.opened} == 0', then: 'font-weight: bold;')}">
                     <f:link.action action="showReceivedMailItem" arguments="{mail: mail}">
                         {mail.sender.name}
                     </f:link.action>
                 </td>
-                <td>
+                <td style="{f:if(condition: '{mail.opened} == 0', then: 'font-weight: bold;')}">
                     <f:link.action action="showReceivedMailItem" arguments="{mail: mail}">
                         {mail.subject}
                     </f:link.action>

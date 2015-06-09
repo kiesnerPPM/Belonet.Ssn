@@ -7,186 +7,167 @@
  */
 
 namespace Belonet\Ssn\Domain\Model;
+
 use TYPO3\Flow\Annotations as Flow;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @Flow\Entity
  */
-class Mail{
+class Mail {
 
 
-    /**
-     * @var \Belonet\Ssn\Domain\Model\UserAccount
-     * @ORM\ManyToOne(inversedBy="mail")
-     */
-    protected $sender;
+  /**
+   * @var \Belonet\Ssn\Domain\Model\UserAccount
+   * @ORM\ManyToOne(inversedBy="mail")
+   */
+  protected $sender;
 
-    /**
-     * @var \Belonet\Ssn\Domain\Model\UserAccount
-     * @ORM\ManyToOne(inversedBy="mail")
-     */
-    protected $recipient;
+  /**
+   * @var \Belonet\Ssn\Domain\Model\UserAccount
+   * @ORM\ManyToOne(inversedBy="mail")
+   */
+  protected $recipient;
 
-    /**
-     * receive date of mail
-     *
-     * @var DateTime
-     */
-    protected $date;
+  /**
+   * receive date of mail
+   *
+   * @var DateTime
+   */
+  protected $date;
 
-    /**
-     * 1: opened
-     * 0: not opened (unread)
-     *
-     * @var int
-     */
-    protected $opened;
+  /**
+   * 1: opened
+   * 0: not opened (unread)
+   *
+   * @var int
+   */
+  protected $opened;
 
-    /**
-     * @var string
-     * @ORM\Column(nullable=true)
-     */
-    protected $subject;
+  /**
+   * @var string
+   * @ORM\Column(nullable=true)
+   */
+  protected $subject;
 
-    /**
-     * @var int
-     */
-    protected $mailOfSender;
+  /**
+   * @var int
+   */
+  protected $mailOfSender;
 
-    /**
-     * @var string
-     * @ORM\Column(type="text")
-     */
-    protected $content;
+  /**
+   * @var string
+   * @ORM\Column(type="text")
+   */
+  protected $content;
 
-    function __construct($sender, $recipient, $date, $opened, $subject, $content, $mailOfSender)
-    {
-        $this->sender = $sender;
-        $this->recipient = $recipient;
-        $this->date = $date;
-        $this->opened = $opened;
-        $this->subject = $subject;
-        $this->content = $content;
-    }
+  function __construct($sender, $recipient, $date, $opened, $subject, $content, $mailOfSender) {
+    $this->sender = $sender;
+    $this->recipient = $recipient;
+    $this->date = $date;
+    $this->opened = $opened;
+    $this->subject = $subject;
+    $this->content = $content;
+    $this->mailOfSender = $mailOfSender;
+  }
 
-    /**
-     * @return UserAccount
-     */
-    public function getSender()
-    {
-        return $this->sender;
-    }
+  /**
+   * @return UserAccount
+   */
+  public function getSender() {
+    return $this->sender;
+  }
 
-    /**
-     * @param UserAccount $sender
-     */
-    public function setSender($sender)
-    {
-        $this->sender = $sender;
-    }
+  /**
+   * @param UserAccount $sender
+   */
+  public function setSender($sender) {
+    $this->sender = $sender;
+  }
 
-    /**
-     * @return UserAccount
-     */
-    public function getRecipient()
-    {
-        return $this->recipient;
-    }
+  /**
+   * @return UserAccount
+   */
+  public function getRecipient() {
+    return $this->recipient;
+  }
 
-    /**
-     * @param UserAccount $recipient
-     */
-    public function setRecipient($recipient)
-    {
-        $this->recipient = $recipient;
-    }
+  /**
+   * @param UserAccount $recipient
+   */
+  public function setRecipient($recipient) {
+    $this->recipient = $recipient;
+  }
 
-    /**
-     * @return DateTime
-     */
-    public function getDate()
-    {
-        return $this->date;
-    }
+  /**
+   * @return DateTime
+   */
+  public function getDate() {
+    return $this->date;
+  }
 
-    /**
-     * @param DateTime $date
-     */
-    public function setDate($date)
-    {
-        $this->date = $date;
-    }
+  /**
+   * @param DateTime $date
+   */
+  public function setDate($date) {
+    $this->date = $date;
+  }
 
-    /**
-     * @return int
-     */
-    public function getOpened()
-    {
-        return $this->opened;
-    }
+  /**
+   * @return int
+   */
+  public function getOpened() {
+    return $this->opened;
+  }
 
-    /**
-     * @param int $opened
-     */
-    public function setOpened($opened)
-    {
-        $this->opened = $opened;
-    }
+  /**
+   * @param int $opened
+   */
+  public function setOpened($opened) {
+    $this->opened = $opened;
+  }
 
-    /**
-     * @return string
-     */
-    public function getSubject()
-    {
-        return $this->subject;
-    }
+  /**
+   * @return string
+   */
+  public function getSubject() {
+    return $this->subject;
+  }
 
-    /**
-     * @param string $subject
-     */
-    public function setSubject($subject)
-    {
-        $this->subject = $subject;
-    }
+  /**
+   * @param string $subject
+   */
+  public function setSubject($subject) {
+    $this->subject = $subject;
+  }
 
-    /**
-     * @return int
-     */
-    public function getMailOfSender()
-    {
-        return $this->mailOfSender;
-    }
+  /**
+   * @return int
+   */
+  public function getMailOfSender() {
+    return $this->mailOfSender;
+  }
 
-    /**
-     * @param int $mailOfSender
-     */
-    public function setMailOfSender($mailOfSender)
-    {
-        $this->mailOfSender = $mailOfSender;
-    }
+  /**
+   * @param int $mailOfSender
+   */
+  public function setMailOfSender($mailOfSender) {
+    $this->mailOfSender = $mailOfSender;
+  }
 
-    /**
-     * @return string
-     */
-    public function getContent()
-    {
-        return $this->content;
-    }
+  /**
+   * @return string
+   */
+  public function getContent() {
+    return $this->content;
+  }
 
-    /**
-     * @param string $content
-     */
-    public function setContent($content)
-    {
-        $this->content = $content;
-    }
-
-
-
-
-
-
+  /**
+   * @param string $content
+   */
+  public function setContent($content) {
+    $this->content = $content;
+  }
 
 
 }

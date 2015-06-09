@@ -16,19 +16,22 @@
 
 <f:section name="Content">
 
-    <form class="form-horizontal mail">
+    <f:form action="sendMail" class="form-horizontal mail" method="post" enctype="multipart/formdata">
+        <f:form.hidden name="recipient"/>
+        <f:form.hidden name="subject"/>
+        <f:form.hidden name="content"/>
         <div class="form-group">
             <label for="mailRecipient">Empfänger</label>
-            <input type="text" class="form-control" id="mailRecipient" value="">
+            <f:form.textfield name="recipient" class="form-control" id="mailRecipient" value="" autofocus="autofocus"/>
         </div>
         <div class="form-group">
             <label for="mailSubject">Betreff</label>
-            <input type="text" class="form-control" id="mailSubject" value="">
+            <f:form.textfield name="subject" class="form-control" id="mailSubject" value=""/>
         </div>
         <div class="form-group">
             <label for="mailContent">Nachricht</label>
-            <textarea class="form-control" id="mailContent" rows="10">{mail.content}</textarea>
+            <f:form.textarea name="content" class="form-control" id="mailContent" rows="10"/>
         </div>
         <input class="btn btn-default" type="submit" value="versenden">
-    </form>
+    </f:form>
 </f:section>

@@ -1,0 +1,21 @@
+<f:layout name="Portal"/>
+
+<f:section name="Title">Nachricht versendet</f:section>
+
+<f:section name="TopMenu">
+    <f:render partial="TopMenu"/>
+</f:section>
+
+<f:section name="Navigation">
+    <f:render partial="Navigation" arguments="{active: 'mail'}"/>
+</f:section>
+
+<f:section name="ModuleMenu">
+    <f:render partial="MenuMail" arguments="{active: 'new'}"/>
+</f:section>
+
+<f:section name="Content">
+
+    <h1>Nachricht erfolgreich versendet!</h1>
+
+</f:section>

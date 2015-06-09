@@ -40,7 +40,6 @@ class LoginController extends \TYPO3\Flow\Mvc\Controller\ActionController
      */
     protected $userAccountRepository;
 
-
     /**
      * index action, does only display the form
      * @param array $error
