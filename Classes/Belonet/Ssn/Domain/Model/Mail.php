@@ -17,16 +17,16 @@ class Mail{
 
 
     /**
-     * @var \Belonet\Ssn\Domain\Model\User
+     * @var \Belonet\Ssn\Domain\Model\UserAccount
      * @ORM\ManyToOne(inversedBy="mail")
      */
     protected $sender;
 
     /**
-     * @var \Belonet\Ssn\Domain\Model\User
+     * @var \Belonet\Ssn\Domain\Model\UserAccount
      * @ORM\ManyToOne(inversedBy="mail")
      */
-    protected $receiver;
+    protected $recipient;
 
     /**
      * receive date of mail
@@ -45,8 +45,14 @@ class Mail{
 
     /**
      * @var string
+     * @ORM\Column(nullable=true)
      */
     protected $subject;
+
+    /**
+     * @var int
+     */
+    protected $mailOfSender;
 
     /**
      * @var string
@@ -54,19 +60,18 @@ class Mail{
      */
     protected $content;
 
-    function __construct($sender, $receiver, $date, $opened, $subject, $content)
+    function __construct($sender, $recipient, $date, $opened, $subject, $content, $mailOfSender)
     {
         $this->sender = $sender;
-        $this->receiver = $receiver;
+        $this->recipient = $recipient;
         $this->date = $date;
         $this->opened = $opened;
         $this->subject = $subject;
         $this->content = $content;
     }
 
-
     /**
-     * @return User
+     * @return UserAccount
      */
     public function getSender()
     {
@@ -74,7 +79,7 @@ class Mail{
     }
 
     /**
-     * @param User $sender
+     * @param UserAccount $sender
      */
     public function setSender($sender)
     {
@@ -82,19 +87,19 @@ class Mail{
     }
 
     /**
-     * @return User
+     * @return UserAccount
      */
-    public function getReceiver()
+    public function getRecipient()
     {
-        return $this->receiver;
+        return $this->recipient;
     }
 
     /**
-     * @param User $receiver
+     * @param UserAccount $recipient
      */
-    public function setReceiver($receiver)
+    public function setRecipient($recipient)
     {
-        $this->receiver = $receiver;
+        $this->recipient = $recipient;
     }
 
     /**
@@ -146,6 +151,22 @@ class Mail{
     }
 
     /**
+     * @return int
+     */
+    public function getMailOfSender()
+    {
+        return $this->mailOfSender;
+    }
+
+    /**
+     * @param int $mailOfSender
+     */
+    public function setMailOfSender($mailOfSender)
+    {
+        $this->mailOfSender = $mailOfSender;
+    }
+
+    /**
      * @return string
      */
     public function getContent()
@@ -160,6 +181,10 @@ class Mail{
     {
         $this->content = $content;
     }
+
+
+
+
 
 
 

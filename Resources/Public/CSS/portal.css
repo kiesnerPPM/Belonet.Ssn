@@ -122,13 +122,13 @@ div.menu ul {
 
 div.menu ul li {
     display: inline-block;
+    margin-right: 10px;
 }
 
 div.menu ul li a {
-    font-size: 15px;
-    padding: 5px 10px;
+    font-size: 17px;
+    padding: 10px 20px;
     color: #FFF;
-    padding: 3px 10px;
     display: block;
     border-radius: 5px 5px 0 0;
 }
