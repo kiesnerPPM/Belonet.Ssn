@@ -18,23 +18,26 @@
                 <f:form action="adminAuthenticate" method="post">
                     <table id="registerUserFields">
                         <tr>
-                            <td><label>Benutzername</label></td>
+                            <td style="padding: 10px 20px;"><label>Benutzername</label></td>
                             <td>
                                 <f:form.textfield
-                                        name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][username]"/>
+                                        name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][username]"
+                                        style="padding: 2px 5px; width: 300px;"/>
                             </td>
                         </tr>
                         <tr>
-                            <td><label>Passwort</label></td>
+                            <td style="padding: 10px 20px;"><label>Passwort</label></td>
                             <td>
                                 <f:form.password
-                                        name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][password]"/>
+                                        name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][password]"
+                                        style="padding: 2px 5px; width: 300px;"/>
                             </td>
                         </tr>
                     </table>
                     <f:flashMessages class="flashmessages"/>
                     <br>
-                    <f:form.submit value="Anmelden" class="btn btn-primary"/>
+                    <f:form.submit value="anmelden" class="btn btn-primary"
+                                   style="margin-left: 250px; padding: 5px 50px;"/>
                     <div style="clear: both;"></div>
                     <br>
                 </f:form>
