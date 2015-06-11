@@ -32,7 +32,7 @@ class SetupController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 
       $account = new \Belonet\Ssn\Domain\Model\UserAccount();
       $account->setPassword("password");
-      $account->setName("Marwin");
+      $account->setName("Marwin Züfle");
       $account->setUsername("Marwin");
       $account->setEmailAddress("marwin@belonet.de");
 
@@ -41,7 +41,7 @@ class SetupController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 
       $account2 = new \Belonet\Ssn\Domain\Model\UserAccount();
       $account2->setPassword("password");
-      $account2->setName("Stefan");
+      $account2->setName("Stefan Herrnleben");
       $account2->setUsername("Stefan");
       $account2->setEmailAddress("stefan@belonet.de");
 
@@ -50,7 +50,7 @@ class SetupController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 
       $account3 = new \Belonet\Ssn\Domain\Model\UserAccount();
       $account3->setPassword("password");
-      $account3->setName("Veronika");
+      $account3->setName("Veronika Lesch");
       $account3->setUsername("Veronika");
       $account3->setEmailAddress("veronika@belonet.de");
 
@@ -59,7 +59,7 @@ class SetupController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 
       $account4 = new \Belonet\Ssn\Domain\Model\UserAccount();
       $account4->setPassword("password");
-      $account4->setName("Max");
+      $account4->setName("Max Kiesner");
       $account4->setUsername("Max");
       $account4->setEmailAddress("max@belonet.de");
 
@@ -68,7 +68,7 @@ class SetupController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 
       $account5 = new \Belonet\Ssn\Domain\Model\UserAccount();
       $account5->setPassword("password");
-      $account5->setName("Frank");
+      $account5->setName("Frank Loh");
       $account5->setUsername("Frank");
       $account5->setEmailAddress("frank@belonet.de");
 
@@ -77,7 +77,7 @@ class SetupController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 
       $account6 = new \Belonet\Ssn\Domain\Model\UserAccount();
       $account6->setPassword("password");
-      $account6->setName("Anna");
+      $account6->setName("Anna Horrer");
       $account6->setUsername("Anna");
       $account6->setEmailAddress("anna@belonet.de");
 
