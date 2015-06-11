@@ -92,11 +92,12 @@ class MailController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 	}
 
 
-	/**
-	 * Action which creates a new Mail
-	 */
-	public function newMailAction() {
-
+    /**
+     *
+     * @param \Belonet\Ssn\Domain\Model\Mail $mail
+     */
+	public function newMailAction($mail = NULL) {
+        $this->view->assign('mail', $mail);
 	}
 
 	/**

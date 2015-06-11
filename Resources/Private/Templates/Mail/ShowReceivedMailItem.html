@@ -19,7 +19,7 @@
         <f:link.action controller="Mail" action="showReceivedMails"
                        additionalAttributes="{role : 'button', class: 'btn btn-default'}">zurück
         </f:link.action>
-        <f:link.action controller="Mail" action="newMail"
+        <f:link.action controller="Mail" action="newMail" arguments="{mail: mail}"
                        additionalAttributes="{role : 'button', class: 'btn btn-default'}">antworten
         </f:link.action>
         <f:link.action controller="Mail" action="showReceivedMailItem" arguments="{mail: mail, editor: 'delete'}"
