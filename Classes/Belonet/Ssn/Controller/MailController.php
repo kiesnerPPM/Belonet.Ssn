@@ -96,9 +96,14 @@ class MailController extends \TYPO3\Flow\Mvc\Controller\ActionController {
      *
      * @param \Belonet\Ssn\Domain\Model\Mail $mail
      */
-	public function newMailAction($mail = NULL) {
-        $this->view->assign('mail', $mail);
-	}
+  public function newMailAction($mail = NULL) {
+    if ($mail != null) {
+      $mail->setSubject('Antwort: ' . $mail->getSubject());
+      $answerString = "\n\n\n>> " . $mail->getSender()->getName() . " schrieb am ". $mail->getDate()->format('d.m.Y') ." um ". $mail->getDate()->format('H:m') . " Uhr:\n";
+      $mail->setContent($answerString . $mail->getContent());
+    }
+    $this->view->assign('mail', $mail);
+  }
 
 	/**
 	 * @param string $recipient
