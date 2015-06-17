@@ -191,3 +191,34 @@ form.mail div.form-group textarea {
     width: 600px;
 }
 
+.wiki-main-container {
+    max-width: inherit;
+    max-height: inherit;
+    padding: 5px;
+}
+
+.wiki-entries-menu {
+    padding: 4px;
+}
+
+.wiki-entries-nav {
+    float: left;
+    width: 30%;
+    border: 1px solid black;
+    background-color: lightgrey;
+    list-style: none;
+}
+
+.wiki-entries-nav .wiki-entries-nav-element {
+    border-bottom: 1px solid black;
+    padding: 5px;
+}
+
+.wiki-entries-nav .wiki-entries-nav-element:last-child {
+    border-bottom: none;
+}
+
+.wiki-entry-content {
+    float: left;
+    width: 65%;
+}
