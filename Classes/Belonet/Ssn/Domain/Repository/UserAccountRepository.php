@@ -14,6 +14,6 @@ use TYPO3\Flow\Annotations as Flow;
  * Worker Repo
  * @Flow\Scope("singleton")
  */
-class WorkerRepository extends \TYPO3\Flow\Persistence\Repository {
+class UserAccountRepository extends \TYPO3\Flow\Persistence\Repository {
 
 }

@@ -1,0 +1,63 @@
+<f:layout name="Portal"/>
+
+<f:section name="Title">{mail.subject}</f:section>
+
+<f:section name="TopMenu">
+    <f:render partial="TopMenu"/>
+</f:section>
+
+<f:section name="Navigation">
+    <f:render partial="Navigation" arguments="{active: 'mail'}"/>
+</f:section>
+
+<f:section name="ModuleMenu">
+    <f:render partial="MenuMail" arguments="{active: 'inbox'}"/>
+</f:section>
+
+<f:section name="Content">
+    <f:if condition="{editor}=='show'">
+        <f:link.action controller="Mail" action="showReceivedMails"
+                       additionalAttributes="{role : 'button', class: 'btn btn-default'}">zurück
+        </f:link.action>
+        <f:link.action controller="Mail" action="newMail" arguments="{mail: mail}"
+                       additionalAttributes="{role : 'button', class: 'btn btn-default'}">antworten
+        </f:link.action>
+        <f:link.action controller="Mail" action="showReceivedMailItem" arguments="{mail: mail, editor: 'delete'}"
+                       additionalAttributes="{role : 'button', class: 'btn btn-default'}">löschen
+        </f:link.action>
+    </f:if>
+    <f:if condition="{editor}=='delete'">
+        <div class="alert alert-danger" role="alert">Wollen Sie diese Nachricht wirklich löschen?</div>
+        <f:link.action controller="Mail" action="showReceivedMailItem" arguments="{mail: mail, editor: 'deleteConfirmed'}"
+                       additionalAttributes="{role : 'button', class: 'btn btn-default'}">ja, löschen
+        </f:link.action>
+        <f:link.action controller="Mail" action="showReceivedMailItem" arguments="{mail: mail}"
+                       additionalAttributes="{role : 'button', class: 'btn btn-default'}">abbrechen
+        </f:link.action>
+    </f:if>
+
+    <form class="form-horizontal mail">
+        <div class="form-group">
+            <label for="mailDate">Datum/Uhrzeit</label>
+            <input type="text" class="form-control" id="mailDate"
+                   value="{mail.date -> f:format.date(format: 'd.m.Y H:i:s')} Uhr" readonly>
+        </div>
+        <div class="form-group">
+            <label for="mailSender">Absender</label>
+            <input type="text" class="form-control" id="mailSender" value="{mail.sender.name}" readonly>
+        </div>
+        <div class="form-group">
+            <label for="mailRecipient">Empfänger</label>
+            <input type="text" class="form-control" id="mailRecipient" value="{mail.recipient.name}" readonly>
+        </div>
+        <div class="form-group">
+            <label for="mailSubject">Betreff</label>
+            <input type="text" class="form-control" id="mailSubject" value="{mail.subject}" readonly>
+        </div>
+        <div class="form-group">
+            <label for="mailContent">Nachricht</label>
+            <textarea class="form-control" id="mailContent" rows="10" readonly>{mail.content}</textarea>
+        </div>
+    </form>
+
+</f:section>

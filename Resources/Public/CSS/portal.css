@@ -36,7 +36,7 @@ ul.topmenu li a {
 }
 
 ul.topmenu li a:hover, ul.topmenu li.active a {
-    background: linear-gradient(#EEE, #FFF);
+    background: linear-gradient(to bottom, rgba(220, 220, 220, 1) 0%, rgba(255, 255, 255, 0) 100%);
     text-decoration: none;
 }
 
@@ -122,13 +122,13 @@ div.menu ul {
 
 div.menu ul li {
     display: inline-block;
+    margin-right: 10px;
 }
 
 div.menu ul li a {
-    font-size: 15px;
-    padding: 5px 10px;
+    font-size: 17px;
+    padding: 10px 20px;
     color: #FFF;
-    padding: 3px 10px;
     display: block;
     border-radius: 5px 5px 0 0;
 }

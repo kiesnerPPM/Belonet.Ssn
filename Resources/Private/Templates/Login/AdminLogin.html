@@ -1,0 +1,49 @@
+<f:layout name="Login"/>
+
+<f:section name="Title">Belonet Anmeldung</f:section>
+
+<f:section name="Content">
+    <img src="{f:uri.resource(path:'IMG/belonet-logo.png')}" alt="belonet" class="logo">
+
+    <h1>Benutzeranmeldung</h1>
+    <br class="clear">
+
+    <div id="registerUserBox">
+        <f:security.ifAuthenticated>
+            <f:then>
+                <f:link.action action="index" controller="Mainpage">Startseite</f:link.action>
+                <br>
+            </f:then>
+            <f:else>
+                <f:form action="adminAuthenticate" method="post">
+                    <table id="registerUserFields">
+                        <tr>
+                            <td style="padding: 10px 20px;"><label>Benutzername</label></td>
+                            <td>
+                                <f:form.textfield
+                                        name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][username]"
+                                        style="padding: 2px 5px; width: 300px;"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px 20px;"><label>Passwort</label></td>
+                            <td>
+                                <f:form.password
+                                        name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][password]"
+                                        style="padding: 2px 5px; width: 300px;"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <f:flashMessages class="flashmessages"/>
+                    <br>
+                    <f:form.submit value="anmelden" class="btn btn-primary"
+                                   style="margin-left: 250px; padding: 5px 50px;"/>
+                    <div style="clear: both;"></div>
+                    <br>
+                </f:form>
+            </f:else>
+        </f:security.ifAuthenticated>
+    </div>
+
+
+</f:section>

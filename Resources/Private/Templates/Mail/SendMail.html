@@ -1,0 +1,25 @@
+<f:layout name="Portal"/>
+
+<f:section name="Title">Nachricht versendet</f:section>
+
+<f:section name="TopMenu">
+    <f:render partial="TopMenu"/>
+</f:section>
+
+<f:section name="Navigation">
+    <f:render partial="Navigation" arguments="{active: 'mail'}"/>
+</f:section>
+
+<f:section name="ModuleMenu">
+    <f:render partial="MenuMail" arguments="{active: 'new'}"/>
+</f:section>
+
+<f:section name="Content">
+
+    <h1>Neue Nachricht</h1>
+    <div class="alert alert-success" role="alert">Nachricht erfolgreich versendet.</div>
+    <f:link.action controller="Mail" action="newMail" additionalAttributes="{role : 'button', class: 'btn btn-default'}">Weitere Nachricht versenden</f:link.action>
+    <f:link.action controller="Mail" action="showReceivedMails" additionalAttributes="{role : 'button', class: 'btn btn-default'}">Empfangene Nachrichten anzeigen</f:link.action>
+    <f:link.action controller="Mail" action="showSendMails" additionalAttributes="{role : 'button', class: 'btn btn-default'}">Gesendete Nachrichten anzeigen</f:link.action>
+
+</f:section>
