@@ -1,0 +1,45 @@
+<f:layout name="Portal"/>
+
+<f:section name="Title">Wiki</f:section>
+
+<f:section name="TopMenu">
+    <f:render partial="TopMenu"/>
+</f:section>
+
+<f:section name="Navigation">
+    <f:render partial="Navigation" arguments="{active: 'wiki'}"/>
+</f:section>
+
+<f:section name="ModuleMenu">
+</f:section>
+
+<f:section name="Content">
+    <f:form action="createNewEntry" class="form-horizontal mail" name="entry" object="{entry}">
+        <div class="form-group">
+            <label for="entryType">Typ</label>
+            <f:form.textfield class="form-control" property="entryType"/>
+            <br/>
+        </div>
+        <div class="form-group">
+            <label for="openingHours">Öffnungszeiten</label>
+            <f:form.textfield class="form-control" property="openingHours"/>
+            <br/>
+        </div>
+        <div class="form-group">
+            <label for="responsiblePerson">Verantwortlicher</label>
+            <f:form.textfield class="form-control" property="responsiblePerson"/>
+            <br/>
+        </div>
+        <div class="form-group">
+            <label for="telephoneNumber">Telefonnummer</label>
+            <f:form.textfield class="form-control" property="telephoneNumber"/>
+            <br/>
+        </div>
+        <div class="form-group">
+            <label for="information">Zusatzinformation</label>
+            <f:form.textarea class="form-control" property="information" rows="10"/>
+            <br/>
+        </div>
+            <input class="btn btn-default" type="submit" value="Erstellen" style="margin-left: 350px; padding: 10px 100px;"/>
+    </f:form>
+</f:section>

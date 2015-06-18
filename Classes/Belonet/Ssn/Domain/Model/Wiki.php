@@ -24,10 +24,17 @@ class Wiki{
     protected $entryType;
 
     /**
-     * information about entry
-     * Opening hours
-     * telephone number
-     * TODO: maybe split up
+     * @var string
+     */
+    protected $openingHours;
+
+    /**
+     * @var string
+     */
+    protected $telephoneNumber;
+
+    /**
+     * additional information
      *
      * @var string
      * @ORM\Column(type="text")
@@ -95,6 +102,38 @@ class Wiki{
     public function setResponsiblePerson($responsiblePerson)
     {
         $this->responsiblePerson = $responsiblePerson;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOpeningHours()
+    {
+        return $this->openingHours;
+    }
+
+    /**
+     * @param string $openingHours
+     */
+    public function setOpeningHours($openingHours)
+    {
+        $this->openingHours = $openingHours;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTelephoneNumber()
+    {
+        return $this->telephoneNumber;
+    }
+
+    /**
+     * @param string $telephoneNumber
+     */
+    public function setTelephoneNumber($telephoneNumber)
+    {
+        $this->telephoneNumber = $telephoneNumber;
     }
 
 

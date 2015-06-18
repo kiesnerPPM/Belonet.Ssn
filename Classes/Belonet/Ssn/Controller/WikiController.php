@@ -27,9 +27,12 @@ class WikiController extends \TYPO3\Flow\Mvc\Controller\ActionController {
      *
 	 * @return void
 	 */
-	public function showEntriesAction() {
+	public function showEntriesAction(\Belonet\Ssn\Domain\Model\Wiki  $currentEntry = null) {
         $allEntries = $this->wikiRepository->findAll()->toArray();
-        $this->persistenceManager->persistAll();
+        if (is_null($currentEntry)) {
+            $currentEntry = $allEntries[0];
+        }
+        $this->view->assign("currentEntry", $currentEntry);
         $this->view->assign("allEntries", $allEntries);
 	}
 
@@ -38,12 +41,7 @@ class WikiController extends \TYPO3\Flow\Mvc\Controller\ActionController {
         $this->redirect("showEntries", null, null, array());
     }
 
-    /**
-     * @param \Belonet\Ssn\Domain\Model\Wiki $entry
-     */
-    public function createNewWorkerAction(\Belonet\Ssn\Domain\Model\Wiki $entry) {
-        $this->workerRepository->add($entry);
-        $this->redirect("showWikiData", null, null, array());
-    }
+    public function showCreateNewEntryFormAction() {
 
+    }
 }

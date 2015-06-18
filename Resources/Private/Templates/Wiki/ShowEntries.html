@@ -14,38 +14,23 @@
 </f:section>
 
 <f:section name="Content">
+    <f:link.action action="showCreateNewEntryForm">Neuen Eintrag erstellen...</f:link.action>
     <div class="wiki-main-container">
         <nav class="wiki-entries-menu">
             <ul class="wiki-entries-nav">
-                <li class="wiki-entries-nav-element">a</li>
-                <li class="wiki-entries-nav-element">b</li>
-                <li class="wiki-entries-nav-element">c</li>
-                <li class="wiki-entries-nav-element">a</li>
-                <li class="wiki-entries-nav-element">b</li>
-                <li class="wiki-entries-nav-element">c</li>
-                <li class="wiki-entries-nav-element">a</li>
-                <li class="wiki-entries-nav-element">b</li>
-                <li class="wiki-entries-nav-element">c</li>
-                <li class="wiki-entries-nav-element">a</li>
-                <li class="wiki-entries-nav-element">b</li>
-                <li class="wiki-entries-nav-element">c</li>
-                <li class="wiki-entries-nav-element">a</li>
-                <li class="wiki-entries-nav-element">b</li>
-                <li class="wiki-entries-nav-element">c</li>
-                <li class="wiki-entries-nav-element">a</li>
-                <li class="wiki-entries-nav-element">b</li>
-                <li class="wiki-entries-nav-element">c</li>
-                <li class="wiki-entries-nav-element">a</li>
-                <li class="wiki-entries-nav-element">b</li>
-                <li class="wiki-entries-nav-element">c</li>
+                <f:for each="{allEntries}" as="e">
+                    <li class="wiki-entries-nav-element {f:if(condition: '{currentEntry} == {e}', then: 'active')}">
+                        <f:link.action class="wiki-entries-nav-element-link" action="showEntries" arguments="{currentEntry : e}">{e.entryType}</f:link.action>
+                    </li>
+                </f:for>
             </ul>
         </nav>
         <div class="wiki-entry-content">
-            long ass textlong ass textlong ass textlong ass text
-            long ass textlong ass textlong ass textlong ass text
-            long ass textlong ass textlong ass textlong ass text
-            long ass textlong ass textlong ass textlong ass text
-            long ass textlong ass textlong ass textlong ass text
+            {currentEntry.responsiblePerson} - {currentEntry.telephoneNumber}<br/>
+            geöffnet: {currentEntry.openingHours}
+            <p>
+            {currentEntry.information}
+            </p>
         </div>
     </div>
 </f:section>
