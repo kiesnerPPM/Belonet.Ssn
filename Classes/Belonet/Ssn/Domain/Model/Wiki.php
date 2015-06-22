@@ -45,6 +45,7 @@ class Wiki{
      * keywords which can be searched for
      *
      * @var string[]
+     * @ORM\Column(nullable=true)
      */
     protected $keywords;
 
