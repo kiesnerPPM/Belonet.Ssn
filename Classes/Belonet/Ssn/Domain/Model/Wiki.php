@@ -42,6 +42,13 @@ class Wiki{
     protected $information;
 
     /**
+     * keywords which can be searched for
+     *
+     * @var string[]
+     */
+    protected $keywords;
+
+    /**
      * maybe there is a contact person
      *
      * @var string
@@ -134,6 +141,22 @@ class Wiki{
     public function setTelephoneNumber($telephoneNumber)
     {
         $this->telephoneNumber = $telephoneNumber;
+    }
+
+    /**
+     * @return \string[]
+     */
+    public function getKeywords()
+    {
+        return $this->keywords;
+    }
+
+    /**
+     * @param \string[] $keywords
+     */
+    public function setKeywords($keywords)
+    {
+        $this->keywords = $keywords;
     }
 
 
