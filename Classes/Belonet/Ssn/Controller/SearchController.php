@@ -21,7 +21,7 @@ class SearchController extends \TYPO3\Flow\Mvc\Controller\ActionController {
      * @param \Belonet\Ssn\Domain\Model\Searchentry $currentEntry
      */
     public function showSearchPageAction(\Belonet\Ssn\Domain\Model\Searchentry $currentEntry = null) {
-        $user = $this->authenticationManager->getSecurityContext()->getAccount()->getParty();
+       /** $user = $this->authenticationManager->getSecurityContext()->getAccount()->getParty();
 
         $allEntries = $this->searchentryRepository->findAll()->toArray();
         if (is_null($currentEntry)) {
@@ -29,13 +29,14 @@ class SearchController extends \TYPO3\Flow\Mvc\Controller\ActionController {
         }
         $this->view->assign("currentEntry", $currentEntry);
         $this->view->assign("allEntries", $allEntries);
-
+    */
 
     }
     public function createNewEntryAction(\Belonet\Ssn\Domain\Model\Searchentry $entry)
     {
+        /**
         $this->searchentryRepository->add($entry);
-        $this->redirect("showSearchPage", null, null, array());
+        $this->redirect("showSearchPage", null, null, array());*/ 
     }
     /**
      * action for displaying search results
