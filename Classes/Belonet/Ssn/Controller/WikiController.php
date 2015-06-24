@@ -25,13 +25,22 @@ class WikiController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 	/**
      * action to show all entries
      *
+     * @param \Belonet\Ssn\Domain\Model\Wiki $currentEntry
+     * @param string $ssf
 	 * @return void
 	 */
-	public function showEntriesAction(\Belonet\Ssn\Domain\Model\Wiki  $currentEntry = null) {
-        $allEntries = $this->wikiRepository->findAll()->toArray();
-        if (is_null($currentEntry)) {
-            $currentEntry = $allEntries[0];
-        }
+	public function showEntriesAction(\Belonet\Ssn\Domain\Model\Wiki $currentEntry = null, $ssf = null) {
+
+        $allEntries = array_filter($this->wikiRepository->findAll()->toArray(),
+                                   function($e) use ($ssf) {return is_null($ssf) ||
+                                                            $ssf === "" ||
+                                                            strpos($e->getEntryType() .
+                                                                   $e->getOpeningHours() .
+                                                                   $e->getTelephoneNumber().
+                                                                   $e->getInformation().
+                                                                   $e->getKeyWords(), $ssf) !== false;});
+        echo $ssf;
+        $this->view->assign("searchStringFilter", $ssf);
         $this->view->assign("currentEntry", $currentEntry);
         $this->view->assign("allEntries", $allEntries);
 	}
@@ -45,3 +54,4 @@ class WikiController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 
     }
 }
+

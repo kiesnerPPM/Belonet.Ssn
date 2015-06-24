@@ -15,22 +15,33 @@
 
 <f:section name="Content">
     <f:link.action action="showCreateNewEntryForm">Neuen Eintrag erstellen...</f:link.action>
+    <f:form action="showEntries" class="form-horizontal mail">
+        <div class="form-group">
+            <label for="ssf">Suchbegriff</label>
+            <f:form.textfield class="form-control" name="ssf" value="{searchStringFilter}"/>
+            <br/>
+        </div>
+        <input class="btn btn-default" type="submit" value="Suchen" style="margin-left: 350px; padding: 10px 100px;"/>
+    </f:form>
+
     <div class="wiki-main-container">
         <nav class="wiki-entries-menu">
             <ul class="wiki-entries-nav">
                 <f:for each="{allEntries}" as="e">
                     <li class="wiki-entries-nav-element {f:if(condition: '{currentEntry} == {e}', then: 'active')}">
-                        <f:link.action class="wiki-entries-nav-element-link" action="showEntries" arguments="{currentEntry : e}">{e.entryType}</f:link.action>
+                        <f:link.action class="wiki-entries-nav-element-link" action="showEntries" arguments="{currentEntry : e, ssf : searchStringFilter}">{e.entryType}</f:link.action>
                     </li>
                 </f:for>
             </ul>
         </nav>
         <div class="wiki-entry-content">
-            {currentEntry.responsiblePerson} - {currentEntry.telephoneNumber}<br/>
-            geöffnet: {currentEntry.openingHours}
-            <p>
-            {currentEntry.information}
-            </p>
+            <f:if condition="{currentEntry}">
+                {currentEntry.responsiblePerson} - {currentEntry.telephoneNumber}<br/>
+                geöffnet: {currentEntry.openingHours}
+                <p>
+                {currentEntry.information}
+                </p>
+            </f:if>
         </div>
     </div>
 </f:section>

@@ -44,7 +44,7 @@ class Wiki{
     /**
      * keywords which can be searched for
      *
-     * @var string[]
+     * @var string
      * @ORM\Column(nullable=true)
      */
     protected $keywords;
@@ -145,7 +145,7 @@ class Wiki{
     }
 
     /**
-     * @return \string[]
+     * @return \string
      */
     public function getKeywords()
     {
@@ -153,14 +153,11 @@ class Wiki{
     }
 
     /**
-     * @param \string[] $keywords
+     * @param \string $keywords
      */
     public function setKeywords($keywords)
     {
         $this->keywords = $keywords;
     }
-
-
-
 
 }

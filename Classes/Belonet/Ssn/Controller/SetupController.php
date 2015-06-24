@@ -99,13 +99,15 @@ class SetupController extends \TYPO3\Flow\Mvc\Controller\ActionController
             $wikiEntry1->setOpeningHours("08:00 - 18:00");
             $wikiEntry1->setTelephoneNumber("09345/923492");
             $wikiEntry1->setResponsiblePerson("Apot Heker");
+            $wikiEntry1->setKeywords("Apotheke;Medikamente;");
             $this->wikiRepository->add($wikiEntry1);
 
             $wikiEntry2 = new \Belonet\Ssn\Domain\Model\Wiki("Arzt","");
-            $wikiEntry2->setInformation("Behandlung auch für gesetzlich Versicherte");
+            $wikiEntry2->setInformation("97074 Würzburg<br/>Behandlung auch für gesetzlich Versicherte");
             $wikiEntry2->setOpeningHours("08:00 - 18:00");
             $wikiEntry2->setTelephoneNumber("091234 / 91234");
             $wikiEntry2->setResponsiblePerson("Dr. Peter Silie");
+            $wikiEntry2->setKeywords("Doktor;Arzt;krank");
             $this->wikiRepository->add($wikiEntry2);
 
             $wikiEntry3 = new \Belonet\Ssn\Domain\Model\Wiki("Metzger","");
@@ -113,6 +115,7 @@ class SetupController extends \TYPO3\Flow\Mvc\Controller\ActionController
             $wikiEntry3->setOpeningHours("10:00 - 16:00");
             $wikiEntry3->setTelephoneNumber("09234/24524");
             $wikiEntry3->setResponsiblePerson("Roland Fleischer");
+            $wikiEntry3->setKeywords("Fleisch;Wurst");
             $this->wikiRepository->add($wikiEntry3);
         }
         $this->persistenceManager->persistAll();
