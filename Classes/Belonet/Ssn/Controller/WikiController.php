@@ -39,7 +39,6 @@ class WikiController extends \TYPO3\Flow\Mvc\Controller\ActionController {
                                                                    $e->getTelephoneNumber().
                                                                    $e->getInformation().
                                                                    $e->getKeyWords(), $ssf) !== false;});
-        echo $ssf;
         $this->view->assign("searchStringFilter", $ssf);
         $this->view->assign("currentEntry", $currentEntry);
         $this->view->assign("allEntries", $allEntries);
