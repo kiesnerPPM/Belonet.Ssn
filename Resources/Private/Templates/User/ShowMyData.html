@@ -15,4 +15,21 @@
 
 <f:section name="Content">
     <h1>Meine Daten</h1>
+    <f:form action="changeMyData" class="form-horizontal mail">
+        <div class="form-group">
+            <label for="emailAddress">E-Mail</label>
+            <f:form.textfield class="form-control" name="emailAddress" value="{email}"/>
+            <br/>
+        </div>
+        <div class="form-group">
+            <label for="username">Benutzername</label>
+            <f:form.textfield class="form-control"name="username" value="{username}"/>
+            <br/>
+        </div>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <f:form.textfield class="form-control" name="name" value="{name}"/>
+        </div>
+        <input class="btn btn-default" type="submit" value="Daten ändern" style="margin-left: 350px; padding: 10px 100px;"/>
+    </f:form>
 </f:section>
